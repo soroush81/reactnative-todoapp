@@ -10,7 +10,7 @@ const WelcomeScreen = ({ navigation }) => {
                 <Text style={styles.tagLine}>TODOS</Text>
             </View>
             <View style={styles.buttonContainer}>
-                <Button title="Login" color="secondary" onPress={() => navigation.navigate("TodoList")} />
+                <Button title="Login" color="secondary" onPress={() => navigation.navigate("Login")} />
                 <Button title="Register" color="mediumlight" />
             </View>
         </View>
