@@ -23,7 +23,7 @@ const AppNavigator = () => (
         })}
     >
         <Tab.Screen name="Todos" component={TodoNavigator} />
-        <Tab.Screen
+        {/* <Tab.Screen
             name="Todo"
             component={TodoScreen}
             options={
@@ -31,7 +31,7 @@ const AppNavigator = () => (
                     tabBarButton: () => <NewTodoButton onPress={() => { navigation.navigate("Todo") }} />
                 })
             }
-        />
+        /> */}
         <Tab.Screen name="Account" component={AccountNavigator} />
 
     </Tab.Navigator>

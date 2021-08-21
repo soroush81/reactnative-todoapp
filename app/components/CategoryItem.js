@@ -21,26 +21,30 @@ const CategoryItem = ({ item, onPress }) => {
 const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
-    borderRadius: 25,
+    borderRadius: 10,
     borderColor: defaultStyles.colors.mediumlight,
     width: 150,
     height: 150,
     paddingLeft: 10,
     paddingTop: 10,
     alignItems: 'flex-start',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    marginBottom: 20
   },
   label: {
     paddingLeft: 10,
     paddingTop: 15,
     textAlign: 'left',
+    fontSize: 14,
+    fontWeight: "700",
     color: defaultStyles.colors.medium
   },
   subTitle: {
     paddingLeft: 10,
     textAlign: 'left',
     color: defaultStyles.colors.mediumlight,
-    fontSize: 12
+    fontSize: 12,
+    fontWeight: "700"
   }
 })
 export default CategoryItem;

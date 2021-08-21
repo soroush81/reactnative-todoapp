@@ -3,6 +3,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import defaulStyles from '../config/styles'
+
 const NewTodoButton = ({ onPress }) => {
     return (
         <TouchableOpacity onPress={onPress}>
