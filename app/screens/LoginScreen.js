@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import { StyleSheet, View } from 'react-native'
 import Button from '../components/Button'
 import AuthContext from '../context/AuthContext'
+import AppForm from './../components/forms/AppForm';
+import AppFormField from './../components/forms/AppFormField';
 
 const LoginScreen = () => {
     const authContext = useContext(AuthContext)
@@ -12,8 +14,12 @@ const LoginScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Button title="login"
-                onPress={() => handleSubmit()} />
+            <AppForm>
+                <AppFormField name="username" width="100%" />
+                <AppFormField name="password" width="100%" />
+                <Button title="login"
+                    onPress={() => handleSubmit()} />
+                </AppForm>
         </View>
     );
 }

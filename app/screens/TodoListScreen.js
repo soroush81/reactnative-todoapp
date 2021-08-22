@@ -1,102 +1,28 @@
 import React from 'react'
-import { StyleSheet, FlatList, View } from 'react-native'
-import CategoryItem from '../components/CategoryItem';
-import Screen from '../components/Screen';
-import AppText from '../components/AppText';
+import { StyleSheet, Text,View } from 'react-native'
+import ListHeader from '../components/todos/ListHeader';
+import TodoList from './../components/todos/TodoList';
 import defaultStyles from '../config/styles'
-import NewCategoryButton from '../navigation/NewCategoryButton';
-import navigationTheme from '../navigation/navigationTheme';
 
-const categories = [
-    {
-        icon: {
-            name: "home",
-            backgroundColor: "#fc5c65"
-        },
-        label: "All", value: 1
-    },
-    {
-        icon: {
-            name: "shoe-heel",
-            backgroundColor: "#2bcbba"
-        },
-        label: "Clothing", value: 2
-    },
-    {
-        icon: {
-            name: "format-list-bulleted",
-            backgroundColor: "#0ab399"
-        },
-        label: "Projects", value: 3
-    },
-    {
-        icon: {
-            name: "camera",
-            backgroundColor: "#fed330"
-        },
-        label: "camera", value: 3
-    },
-    {
-        icon: {
-            name: "car",
-            backgroundColor: "#fd9644"
-        }, label: "Cars", value: 4
-    },
-    {
-        icon: {
-            name: "cards",
-            backgroundColor: "#26de81"
-        }, label: "Routines", value: 5
-    },
-    {
-        icon: {
-            name: "basketball",
-            backgroundColor: "#45aaf2"
-        }, label: "Sports", value: 6
-    },
-    {
-        icon: {
-            name: "headphones",
-            backgroundColor: "#4b7bec"
-        }, label: "Movies & Musics", value: 7
-    },
+const todos = [
+    {id:1,title:'Call Ali', overdueDate:'2021-08-19 14:00', completed:true},
+    {id:2, title:'Call Sanaz', overdueDate:'2021-08-19 11:00', completed:false}
 ]
-
-const TodoListScreen = ({ navigation }) => {
+const TodoListScreen = ({route}) => {
+    const {item} = route.params;
     return (
-        <Screen style={styles.container}>
-            <AppText style={styles.title}>Lists</AppText>
-            <FlatList
-                columnWrapperStyle={{ justifyContent: 'space-evenly', }}
-                horizontal={false}
-                numColumns={2}
-                data={categories}
-                keyExtractor={item => item.value.toString()}
-                renderItem={({ item }) => (
-                    <CategoryItem
-                        item={
-                            {
-                                title: item.label,
-                                subTitle: '23 tasks',
-                                icon: { name: item.icon.name, iconColor: item.icon.backgroundColor }
-                            }
-                        } onPress={() => console.log('test')} />)}
-            />
-            <NewCategoryButton onPress={() => navigation.navigate("Todo")} />
-        </Screen>
-    );
+        <View style={styles.container}>
+            <ListHeader item={item} />
+            <TodoList todos={todos} />
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        marginHorizontal: 10,
-    },
-    title: {
-        marginBottom: 35,
-        paddingLeft: 40,
-        fontSize: 28,
-        fontWeight: "700",
-        color: defaultStyles.colors.dark
+    container:{
+        flex:1,
+        backgroundColor: defaultStyles.colors.primary
     }
 })
-export default TodoListScreen;
+
+export default TodoListScreen

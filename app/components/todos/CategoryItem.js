@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import defaultStyles from '../config/styles'
-import AppText from './AppText'
+import defaultStyles from '../../config/styles'
+import AppText from '../AppText'
 const CategoryItem = ({ item, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
