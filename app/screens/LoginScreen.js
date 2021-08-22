@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { StyleSheet, View } from 'react-native'
 import Button from '../components/Button'
+import Screen from '../components/Screen';
+
 import AuthContext from '../context/AuthContext'
 import AppForm from './../components/forms/AppForm';
 import AppFormField from './../components/forms/AppFormField';
@@ -13,14 +15,14 @@ const LoginScreen = () => {
     }
 
     return (
-        <View style={styles.container}>
+        <Screen style={styles.container}>
             <AppForm>
                 <AppFormField name="username" width="100%" />
                 <AppFormField name="password" width="100%" />
                 <Button title="login"
                     onPress={() => handleSubmit()} />
-                </AppForm>
-        </View>
+            </AppForm>
+        </Screen>
     );
 }
 
