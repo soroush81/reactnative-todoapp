@@ -19,7 +19,7 @@ const CheckBox = ({value,onChange}) => {
                     <MaterialCommunityIcons 
                         style={styles.checkBox} 
                         name="checkbox-marked" 
-                        size={30} 
+                        size={25} 
                         color={defaultStyles.colors.secondary} 
                     />
             }
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
       borderRadius:3
   },
   checkBox:{
+    left:0,
     flex:1
   }
 })

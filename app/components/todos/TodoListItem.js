@@ -8,9 +8,9 @@ const TodoListItem = ({item}) => {
     return (
         <TouchableOpacity>
             <View style={styles.container}>
-                <View style={itemCompleted ? styles.itemdetailcompleted : styles.itemdetail}>
-                    <AppText>{item.title}</AppText>
-                    <AppText>{item.overdueDate}</AppText>
+                <View style={styles.itemdetailPanel}>
+                    <AppText style={itemCompleted ? styles.itemcompleted : styles.item}>{item.title}</AppText>
+                    <AppText style={styles.date}>{item.overdueDate}</AppText>
                 </View>
                 <CheckBox value={itemCompleted} style={styles.checkBox} onChange={()=>{setItemCompleted(!itemCompleted);}} />
             </View>
@@ -31,12 +31,18 @@ const styles = StyleSheet.create({
         borderColor:"red",
         flex:1
     }, 
-    itemdetail:{
-        flex:4
-        
+    date:{
+        fontSize:10
     },
-    itemdetailcompleted: {
-        flex:4,textDecorationLine: 'line-through', textDecorationStyle: 'solid'
+    item:{
+
+    },
+    itemcompleted: {
+        textDecorationLine: 'line-through',
+        textDecorationStyle: 'solid'
+    },
+    itemdetailPanel:{
+        flex:4,
     }
 })
 
