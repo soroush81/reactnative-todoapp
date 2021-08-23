@@ -2,13 +2,27 @@ import React,{useState} from 'react'
 import { StyleSheet,TouchableWithoutFeedback,View } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import defaultStyles from '../config/styles'
-const CheckBox = () => {
+const CheckBox = ({value,onChange}) => {
 
-  const [checkBox, setCheckBox] = useState()
+    const handleChange = () => {
+        setCheckBox(!checkBox); 
+        onChange();
+    }
+    
+
+  const [checkBox, setCheckBox] = useState(value)
   return (
-    <TouchableWithoutFeedback onPress={() => setCheckBox(!checkBox)}>
+    <TouchableWithoutFeedback onPress={handleChange}>
         <View style={styles.container}>
-            {checkBox && <MaterialCommunityIcons style={styles.checkBox} name="checkbox-marked" size={30} color={defaultStyles.colors.secondary} />}
+            {
+                checkBox && 
+                    <MaterialCommunityIcons 
+                        style={styles.checkBox} 
+                        name="checkbox-marked" 
+                        size={30} 
+                        color={defaultStyles.colors.secondary} 
+                    />
+            }
         </View>
     </TouchableWithoutFeedback>
   );

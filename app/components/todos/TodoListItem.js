@@ -1,16 +1,20 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import React, {useState} from 'react'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import AppText from '../AppText'
 import CheckBox from '../CheckBox'
 const TodoListItem = ({item}) => {
+    const [itemCompleted, setItemCompleted] = useState(item.completed)
+    console.log(itemCompleted)
     return (
-        <View style={styles.container}>
-            <View style={styles.itemdetail}>
-                <AppText>{item.title}</AppText>
-                <AppText>{item.overdueDate}</AppText>
+        <TouchableOpacity>
+            <View style={styles.container}>
+                <View style={itemCompleted ? styles.itemdetailcompleted : styles.itemdetail}>
+                    <AppText>{item.title}</AppText>
+                    <AppText>{item.overdueDate}</AppText>
+                </View>
+                <CheckBox value={itemCompleted} style={styles.checkBox} onChange={()=>{setItemCompleted(!itemCompleted);}} />
             </View>
-            <CheckBox value={item.completed} style={styles.checkBox} />
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -29,6 +33,10 @@ const styles = StyleSheet.create({
     }, 
     itemdetail:{
         flex:4
+        
+    },
+    itemdetailcompleted: {
+        flex:4,textDecorationLine: 'line-through', textDecorationStyle: 'solid'
     }
 })
 
