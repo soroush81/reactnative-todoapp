@@ -1,23 +1,37 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Modal, StyleSheet } from 'react-native'
 import ListHeader from '../components/todos/ListHeader';
 import TodoList from './../components/todos/TodoList';
 import defaultStyles from '../config/styles'
 import NewTodoButton from './../navigation/NewTodoButton';
 import Screen from '../components/Screen';
+import todosApi from '../api/todos'
 
-const todos = [
-    { id: 1, title: 'Call Ali', overdueDate: '2021-08-19 14:00', completed: true },
-    { id: 2, title: 'Call Sanaz', overdueDate: '2021-08-19 11:00', completed: false }
-]
+// const todos = [
+//     { id: 1, title: 'Call Ali', overdueDate: '2021-08-19 14:00', completed: true },
+//     { id: 2, title: 'Call Sanaz', overdueDate: '2021-08-19 11:00', completed: false }
+// ]
 const TodoListScreen = ({ route }) => {
-    const { item } = route.params;
+
+    const [todos, setTodos] = useState([])
     const [modalVisible, setModalVisible] = useState(false)
+
+    const { item } = route.params;
+
+    useEffect(() => {
+        loadTodos();
+    }, [])
+
+    const loadTodos = async () => {
+        const response = await todosApi.getTodos();
+        setTodos(response.data);
+    }
+
     return (
         <Screen style={styles.container}>
             <ListHeader item={item} />
             <TodoList todos={todos} />
-            <NewTodoButton onPress={() => { setModalVisible(true); console.log("eeee")}} />
+            <NewTodoButton onPress={() => { setModalVisible(true); }} />
             <Modal visible={modalVisible} animationType="slide">
                 <Button title="Close" onPress={() => setModalVisible(false)} />
             </Modal>
