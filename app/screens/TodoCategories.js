@@ -65,7 +65,6 @@ const categories = [
 const TodoCategoriesScreen = ({ navigation }) => {
     return (
         <Screen style={styles.container}>
-            <AppText style={styles.title}>Lists</AppText>
             <FlatList
                 columnWrapperStyle={{ justifyContent: 'space-evenly', }}
                 horizontal={false}
@@ -92,6 +91,7 @@ const TodoCategoriesScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         marginHorizontal: 10,
+        marginTop:20,
     },
     title: {
         marginBottom: 35,
