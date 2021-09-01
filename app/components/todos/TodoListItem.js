@@ -4,7 +4,6 @@ import AppText from '../AppText'
 import CheckBox from '../CheckBox'
 const TodoListItem = ({item}) => {
     const [itemCompleted, setItemCompleted] = useState(item.completed)
-    console.log(itemCompleted)
     return (
         <TouchableOpacity>
             <View style={styles.container}>
