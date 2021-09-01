@@ -7,11 +7,8 @@ import defaultStyles from '../../config/styles'
 const ListHeader = ({ item }) => {
     return (
         <View style={styles.container}>
-            {
-                item.icon &&
-                <Icon style={styles.icon} name={item.icon.name} size={50} backgroundColor={defaultStyles.colors.white} iconColor={defaultStyles.colors.primary} />
-            }
-            <AppText style={styles.label}>{item.label}</AppText>
+                <Icon style={styles.icon} name={item.iconName} size={50} backgroundColor={defaultStyles.colors.white} iconColor={defaultStyles.colors.primary} />
+            <AppText style={styles.label}>{item.name}</AppText>
             <AppText style={styles.subTitle}>23 tasks</AppText>
         </View>
     )
