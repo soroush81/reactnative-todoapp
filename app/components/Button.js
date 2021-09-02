@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import defaultStyles from '../config/styles'
-const Button = ({ title, onPress, color = "primary" }) => {
+const Button = ({ title, onPress, color = "primary", height = 45 }) => {
     return (
-        <TouchableOpacity style={[styles.button, { backgroundColor: defaultStyles.colors[color] }]} onPress={onPress}>
+        <TouchableOpacity style={[styles.button, { backgroundColor: defaultStyles.colors[color], height: height }]} onPress={onPress}>
             <View>
                 <Text style={styles.text}>{title}</Text>
             </View>
@@ -14,7 +14,7 @@ const Button = ({ title, onPress, color = "primary" }) => {
 const styles = StyleSheet.create({
     button: {
         backgroundColor: defaultStyles.colors.primary,
-        borderRadius: 25,
+        borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 15,

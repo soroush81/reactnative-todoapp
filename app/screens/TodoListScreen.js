@@ -6,6 +6,8 @@ import defaultStyles from '../config/styles'
 import NewTodoButton from './../navigation/NewTodoButton';
 import Screen from '../components/Screen';
 import todosApi from '../api/todos'
+import AppForm from '../components/forms/AppForm'
+import AppFormField from '../components/forms/AppFormField'
 
 // const todos = [
 //     { id: 1, title: 'Call Ali', overdueDate: '2021-08-19 14:00', completed: true },
@@ -33,7 +35,21 @@ const TodoListScreen = ({ route }) => {
             <TodoList todos={todos} />
             <NewTodoButton onPress={() => { setModalVisible(true); }} />
             <Modal visible={modalVisible} animationType="slide">
-                <Button title="Close" onPress={() => setModalVisible(false)} />
+                <AppForm>
+                    <AppFormField
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        name="title"
+                        width="100%"
+                        placeholder="Title" />
+                    <AppFormField
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        name="overdueDate"
+                        width="100%"
+                        placeholder="Overdue Date" />
+                    <Button title="Close" onPress={() => setModalVisible(false)} />
+                </AppForm>
             </Modal>
         </Screen>
     )

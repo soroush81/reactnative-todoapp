@@ -8,6 +8,7 @@ const WelcomeScreen = ({ navigation }) => {
             <View style={styles.logoContainer}>
                 <Image style={styles.logo} source={require("../assets/logo.png")} />
                 <Text style={styles.tagLine}>TODOS</Text>
+                <Text style={styles.tagLine2}>What are you planning?</Text>
             </View>
             <View style={styles.buttonContainer}>
                 <Button title="Login" color="secondary" onPress={() => navigation.navigate("Login")} />
@@ -19,7 +20,7 @@ const WelcomeScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        padding: 20,
+        padding: 50,
         width: "100%",
     },
     container: {
@@ -44,7 +45,18 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: "600",
         paddingVertical: 20,
-        color: defaultStyles.colors.white
+        color: defaultStyles.colors.white,
+        fontStyle: 'italic'
+
+    },
+    tagLine2: {
+        fontSize: 22,
+        fontWeight: "600",
+        paddingVertical: 20,
+        textShadowColor: defaultStyles.colors.medium,
+        textShadowOffset: { height: 1, width: 1 },
+        textShadowRadius: 1,
+        color: defaultStyles.colors.secondary
     }
 })
 export default WelcomeScreen;
