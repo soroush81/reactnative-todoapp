@@ -6,14 +6,17 @@ import Screen from '../components/Screen';
 import AuthContext from '../context/AuthContext'
 import AppForm from './../components/forms/AppForm';
 import AppFormField from './../components/forms/AppFormField';
+import authApi from '../api/auth'
+
 import defaultStyles from '../config/styles'
 
 
 const LoginScreen = () => {
     const authContext = useContext(AuthContext)
-    const handleSubmit = () => {
-        const user = { email: 'soodeh@a.com', password: '123' }
-        authContext.setUser(user)
+    const handleSubmit = async () => {
+        const response = await authApi.login('soodeh', '123456')
+        console.log(response)
+        authContext.setUser(response.data)
     }
 
     return (
